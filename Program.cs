@@ -1,7 +1,12 @@
+using FluentAssertions.Common;
+using Microsoft.Extensions.DependencyInjection;
+using U_Ticket.Data.Emun;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlserver());
 
 var app = builder.Build();
 
@@ -25,3 +30,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+//DbContext
+
+
