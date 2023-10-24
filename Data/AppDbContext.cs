@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using U_Ticket.Models;
 
-namespace U_Ticket.Data.Emun
+namespace U_Ticket.Data
 {
     public class AppDbContext : DbContext
     {
@@ -26,8 +26,8 @@ namespace U_Ticket.Data.Emun
         }
 
         public DbSet<Actor> Actors { get; set; }
-        public DbSet<Movie> Movies {  get; set; }
-        public DbSet<Movie_Actor> Movies_Actors { get; set; }  
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Movie_Actor> Movies_Actors { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Producer> Producers { get; set; }
     }

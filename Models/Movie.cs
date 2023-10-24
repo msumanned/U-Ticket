@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using U_Ticket.Data;
-
+using U_Ticket.Data.Emun;
 
 namespace U_Ticket.Models
 {
