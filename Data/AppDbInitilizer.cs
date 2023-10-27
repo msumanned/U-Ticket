@@ -3,7 +3,7 @@ using U_Ticket.Models;
 
 namespace U_Ticket.Data
 {
-    public class DbAppInitilizer
+    public class AppDbInitilizer
     {
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
@@ -12,6 +12,7 @@ namespace U_Ticket.Data
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
 
                 context.Database.EnsureCreated();
+
                 //Cinema
                 if (!context.Cinemas.Any())
                 {
@@ -21,7 +22,7 @@ namespace U_Ticket.Data
                         {
                             Name="Cinema 1",
                             Logo = "https://images/cinema-logo/Bonicon-Copy.png",
-                            Description="Description of Cinema 1",
+                            Description= "Description of cinema1",
                         },
                         new Cinema()
                         {
@@ -54,19 +55,19 @@ namespace U_Ticket.Data
                         {
                             ProfilePicURL="",
                             FullName="Actor 1",
-                            Bio="Bio of actor1",
+                            Bio="Bio of actor1"
                         },
                         new Actor()
                         {
                             ProfilePicURL="",
                             FullName="Actor 1",
-                            Bio="Bio of actor1",
+                            Bio="Bio of actor1"
                         },
                         new Actor()
                         {
                             ProfilePicURL="",
                             FullName="Actor 1",
-                            Bio="Bio of actor1",
+                            Bio="Bio of actor1"
                         },
 
                     });
@@ -82,19 +83,19 @@ namespace U_Ticket.Data
                         {
                             ProfilePicURL="",
                             FullName="Producer 1",
-                            Bio="This is Bio of Producer1",
+                            Bio="This is Bio of Producer1"
                         },
                         new Producer()
                         {
                             ProfilePicURL="",
                             FullName="Producer 1",
-                            Bio="This is Bio of Producer1",
+                            Bio="This is Bio of Producer1"
                         },
                         new Producer()
                         {
                             ProfilePicURL="",
                             FullName="Producer 1",
-                            Bio="This is Bio of Producer1",
+                            Bio="This is Bio of Producer1"
                         },
                     });
                     context.SaveChanges();
@@ -110,7 +111,35 @@ namespace U_Ticket.Data
                             Descriotion="",
                             Price=12,
                             ImageURL="",
-                            MovieCategory= MovieCategory.Action , 
+                            StartDate= DateTime.Now.AddDays(3),
+                            EndDate= DateTime.Now.AddDays(10),
+                            CinemaId= 1,
+                            ProducerId= 1,
+                            MovieCategory= MovieCategory.Action 
+                        },
+                        new Movie()
+                        {
+                            MovieName="",
+                            Descriotion="",
+                            Price=120,
+                            ImageURL="",
+                            StartDate= DateTime.Now.AddDays(3),
+                            EndDate= DateTime.Now.AddDays(10),
+                            CinemaId= 2,
+                            ProducerId= 3,
+                            MovieCategory= MovieCategory.Action 
+                        },
+                        new Movie()
+                        {
+                            MovieName="",
+                            Descriotion="",
+                            Price=1200,
+                            ImageURL="",
+                            StartDate= DateTime.Now.AddDays(3),
+                            EndDate= DateTime.Now.AddDays(10),
+                            CinemaId= 1,
+                            ProducerId= 2,
+                            MovieCategory= MovieCategory.Action 
                         },
                     });
                     
@@ -119,7 +148,26 @@ namespace U_Ticket.Data
                 //Movie_Actor
                 if (!context.Movies_Actors.Any())
                 {
-                    
+                    context.Movies_Actors.AddRange(new List<Movie_Actor>()
+                    {
+                        new Movie_Actor()
+                        {
+                            ActorId= 1,
+                            MovieId= 2
+                        },
+                        new Movie_Actor()
+                        {
+                            ActorId= 2,
+                            MovieId= 2
+                        },
+                        new Movie_Actor()
+                        {
+                            ActorId= 3,
+                            MovieId= 2
+                        },
+
+                    });
+                    context.SaveChanges();
                 }
 
 
